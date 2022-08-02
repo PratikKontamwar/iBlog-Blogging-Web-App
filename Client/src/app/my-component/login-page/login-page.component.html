@@ -1,0 +1,91 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-md">
+        <a class="navbar-brand" routerLink="/">
+            <span class="material-icons">arrow_back</span>
+            <span> Back to Home</span>
+            <span class="material-icons home-icon">home</span>
+        </a>
+    </div>
+</nav>
+
+
+
+<section class="form my-4 mx-5">
+    <div class="container">
+        <div class="row justify-content-md-center">
+
+            <div class="col-lg-6 px-5">
+                <img class="logo-img ms-5 ps-5" src="/assets/logo.png" alt="Company logo">
+                <h4 class="ms-5 ps-5"> Welcome back! </h4>
+
+                <form >
+                    
+                    <div class="form-row" id="form">
+                        <form [formGroup]="userEmails">
+
+                            <div class="form-floating mb-3 col-lg-9 form-group">
+                                <input [class.is-invalid]="primEmail.invalid && primEmail.touched"
+                                formControlName="primaryEmail"  type="email" class="form-control my-3" id="floatingInput" placeholder="name@example.com">
+                                <label for="floatingInput">Email address</label>
+
+                                <div *ngIf="(primEmail.invalid && primEmail.touched) || primEmail.dirty">
+                                    <small *ngIf="primEmail.errors?.['required']" class="text-danger">Primary email is required</small>
+                                    <!--question mark(?) is a safe navigation operator-->
+                                    <small *ngIf="primEmail.errors?.['pattern']" class="text-danger">Please provide a valid email address</small>
+                                </div>
+
+                            </div> 
+
+                            
+                            
+                            <div class="form-floating col-lg-9 form-group">
+                                <input [class.is-invalid]="passWd.invalid && passWd.touched"
+                                formControlName="passWord" type="password" class="form-control my-3" id="floatingPassword" placeholder="Password">
+                                <label for="floatingPassword">Password</label>
+
+                                <div *ngIf="(passWd.invalid && passWd.touched) || passWd.dirty">
+                                    <small *ngIf="passWd.errors?.['required']" class="text-danger">Password is required</small>
+                                    <small *ngIf="passWd.errors?.['pattern']" class="text-danger">Please provide a Valid Password containing 7 to 15 characters which contain at least one numeric digit and a special character</small>
+                                </div>
+
+                            </div>
+                            
+                        </form>
+
+
+                        <div class="row">
+
+                            <div class="col-sm-4">
+
+                                <div class="form-check ">
+                                    <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Remember me
+                                    </label>
+                                </div>
+
+                            </div>
+
+                            <div class="col ms-5 ps-4">
+                                <p><a href="#">Forgot Password?</a></p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-9">
+                            <button type="button" id="submitBtn" class="btn btn btn-primary btn-login my-2 p-2" (click)="onLogin()">Sign In</button>
+                        </div>
+
+                        <div class="col-lg-9">
+                            <a class="btn btn btn-google btn-block btn-outline my-2" href="#"><img
+                                    src="https://img.icons8.com/color/16/000000/google-logo.png"> Sign in Using
+                                Google</a>
+                        </div>
+
+                        <p> Don't have an account? <span><a routerLink="/register"> Register here</a></span></p>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

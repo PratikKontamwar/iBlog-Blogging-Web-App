@@ -1,0 +1,117 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-md">
+        <a class="navbar-brand" routerLink="/">
+            <span class="material-icons">arrow_back</span>
+            <span> Back to Home</span>
+            <span class="material-icons home-icon">home</span>
+        </a>
+    </div>
+</nav>
+
+
+
+<section class="form my-2 mx-5">
+    <div class="container">
+        <div class="row justify-content-md-center">
+
+            <div class="col-lg-6 px-5">
+                <img class="logo-img ms-5 ps-5" src="/assets/logo.png" alt="Company logo">
+                <h4 class="ms-5 ps-4"> Create Your Account </h4>
+
+                <form >
+                    
+                    <div class="form-row" id="form">
+                        <form [formGroup]="userEmails">
+
+                            <div class="form-floating mb-3 col-lg-9 form-group">
+                                <input [class.is-invalid]="firstName.invalid && firstName.touched" 
+                                formControlName="firstLastName"  type="text" class="form-control my-2" id="floatingInput" placeholder="name">
+                                <label for="floatingInput">First & Last Name</label>
+
+                                <div *ngIf="(firstName.invalid && firstName.touched) || firstName.dirty">
+                                    <small *ngIf="firstName.errors?.['required']" class="text-danger">Name is required</small>
+                                    <!--question mark(?) is a safe navigation operator-->
+                                    <small *ngIf="firstName.errors?.['pattern']" class="text-danger">Please provide a valid name</small>
+                                </div>
+
+                            </div> 
+
+                            <div class="form-floating mb-3 col-lg-9 form-group">
+                                <input [class.is-invalid]="primEmail.invalid && primEmail.touched" 
+                                formControlName="primaryEmail"  type="email" class="form-control my-2" id="floatingInput" placeholder="name@example.com">
+                                <label for="floatingInput">Email address</label>
+
+                                <div *ngIf="(primEmail.invalid && primEmail.touched) || primEmail.dirty">
+                                    <small *ngIf="primEmail.errors?.['required']" class="text-danger">Primary email is required</small>
+                                    <!--question mark(?) is a safe navigation operator-->
+                                    <small *ngIf="primEmail.errors?.['pattern']" class="text-danger">Please provide a valid email address</small>
+                                </div>
+
+                            </div> 
+
+                        </form>
+
+                        <form [formGroup]="form">
+                        
+                            <div class="form-floating col-lg-9 form-group">
+                                <input [class.is-invalid]="passWd.invalid && passWd.touched"
+                                formControlName="password" type="password" class="form-control my-2" id="floatingPassword" placeholder="Password">
+                                <label for="floatingPassword">Password</label>
+
+                                <div *ngIf="(passWd.invalid && passWd.touched) || passWd.dirty">
+                                    <small *ngIf="passWd.errors?.['required']" class="text-danger">Password is required</small>
+                                    <small *ngIf="passWd.errors?.['pattern']" class="text-danger">Please provide a Valid Password containing 7 to 15 characters which contain at least one numeric digit and a special character</small>
+                                </div>
+
+                            </div>
+
+                            <div class="form-floating col-lg-9 form-group">
+                                <input [class.is-invalid]="confirmPass.invalid && confirmPass.touched" 
+                                formControlName="confirm_password" type="password" class="form-control my-2" id="floatingPassword" placeholder="confirmPassword">
+                                <label for="floatingPassword">Confirm Password</label>
+
+                                <div *ngIf="(confirmPass.invalid && confirmPass.touched) || confirmPass.dirty">
+                                    <small *ngIf="confirmPass.errors?.['required']" class="text-danger">Password is required</small>
+
+                                    <!-- <div *ngIf="f.confirm_password.errors.confirmedValidator">Password and Confirm Password must be match.</div> -->
+
+                                    <small *ngIf="confirmPass.errors?.['confirmedValidator']" class="text-danger">Password and Confirm Password must be match.</small>
+
+                                </div>
+
+                            </div>
+                            
+                        </form>
+
+                        <div class="row">
+
+                            <div class="col-sm">
+
+                                <div class="form-check ">
+                                    <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        I have accepted the terms & conditions
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-9">
+                            <button type="button" id="submitBtn" class="btn btn btn-primary btn-login my-3 p-2" (click)="onRegister()">Register</button>
+                        </div>
+
+                        <div class="col-lg-9">
+                            <a class="btn btn btn-google btn-block btn-outline my-2" href="#"><img
+                                    src="https://img.icons8.com/color/16/000000/google-logo.png"> Sign in Using
+                                Google</a>
+                        </div>
+
+                        <p> Already have an account? <span><button type="button" class="btn btn-link login-link" routerLink="/login">Login here</button></span></p>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

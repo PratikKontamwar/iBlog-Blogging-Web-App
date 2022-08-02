@@ -1,0 +1,26 @@
+.bottom-radious {
+    border-radius: 0px 0px 40px 40px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.d-col {
+    /* height: 100vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.brand-logo{
+    width: 128px;
+}
+
+.nav-bg{
+    background: #c8d1e2;
+}
+
+.large-font{
+    font-size: large;
+}
